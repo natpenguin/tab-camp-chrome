@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <style>
+            body {
+                width: 500px;
+                overflow-wrap: break-word;
+            }
+            .container {
+                width: 90%;
+                margin: 20px auto;
+            }
+            .container header {
+                margin: 20px auto;
+            }
+            #content-container {
+                margin: 30px auto;
+            }
+            #content-container .control-panel-container, #content-container .current-stack-container {
+                margin: 20px auto;
+            }
+            #content-container .control-panel-container .buttons-container {
+                margin: 5px auto;
+                width: 100%;
+            }
+            #content-container .current-stack-container .list-stack-container {
+                margin: 5px auto;
+            }
+            #content-container .current-stack-container .list-stack-container button:first-child {
+                display: inline-block;
+                width: 90%;
+            }
+            #content-container .current-stack-container .list-stack-container button:not(first-child) {
+                display: inline-block;
+                width: 10%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>Tab Camp</h1>
+            </header>
+            <div id="content-container">
+                <div class="control-panel-container">
+                    <div class="buttons-container btn-group" role="group">
+                        <button type="button" id="push-stack" class="btn btn-outline-primary">Add current to list</button>
+                        <button type="button" id="clear-stack" class="btn btn-outline-danger">Clear all</button>
+                    </div>
+                </div>
+                <div class="current-stack-container">
+                    <h5>List of tabs</h5>
+                    <div id="list-tabs" class="list-stack-container list-group"></div>
+                </div>
+                <div id="debug-console"></div>
+            </div>
+        </div>
+        <script type="module" src="main.js"></script>
+    </body>
+</html>
