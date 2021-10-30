@@ -10,9 +10,7 @@ let pushButton = document.querySelector('#push-stack');
 let clearButton = document.querySelector('#clear-stack');
 
 function openAllUrls(urls) {
-    for (let url of urls) {
-        chrome.tabs.create({url: url}, function () {});
-    }
+    chrome.windows.create({url : urls});
 }
 
 function removeTabs(tabs) {
@@ -54,9 +52,11 @@ function appendStackContent(title, urls) {
     contentButton.onclick = () => {
         let urls_inner = urls;
         chrome.tabs.query({}, function (tabs) {
+            // TODO: make an option to remove existing tabs if it's needed
+            // removeTabs(tabs);
+
             // To open all of urls selected.
             openAllUrls(urls_inner);
-            removeTabs(tabs);
         });
     };
     contentButton.setAttribute("class", "list-group-item list-group-item-action");
